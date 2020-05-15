@@ -1,50 +1,46 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Login from "../auth/Login";
+import Navbar from "../layout/Navbar";
 
 class Landing extends Component {
   render() {
     return (
+      <div>
+        <Navbar />
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
-          <div className="col s12 center-align">
+          <div className="col s6 left-align">
             <h4>
-              <b>Build</b> a login/auth app with the{" "}
-              <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
-              scratch
+              <span style={{ fontFamily: "Montserrat Bold", "font-size": "40px" }}><b>A mental health platform created for workplaces that want to see their people thrive.</b>{" "}</span>  
             </h4>
-            <p className="flow-text grey-text text-darken-1">
-              Create a (minimal) full-stack app with user authentication via
-              passport and JWTs
+            <p className="flow-text black-text text-darken-1" style={{ fontFamily: "Monserrat Bold", "font-size": "22px"}}>
+              Healthynox is a mental health platform that provides full-spectrum mental health services by combining online therapy sessions with digital programs and resources powered by AI. 
             </p>
             <br />
+
+
             <div className="col s6">
               <Link
-                to="/register"
+                to="/"
                 style={{
-                  width: "140px",
+                  width: "180px",
                   borderRadius: "3px",
-                  letterSpacing: "1.5px"
-                }}
+                  letterSpacing: "1.5px",
+                  fontFamily: "Montserrat Bold",
+                  // "font-size": "20px",
+                  "font-weight": "bold"
+                  }}
+              
                 className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
-                Register
+                Request
               </Link>
             </div>
-            <div className="col s6">
-              <Link
-                to="/login"
-                style={{
-                  width: "140px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px"
-                }}
-                className="btn btn-large btn-flat waves-effect white black-text"
-              >
-                Log In
-              </Link>
-            </div>
+            
           </div>
         </div>
+      </div>
       </div>
     );
   }

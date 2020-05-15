@@ -9,12 +9,16 @@ import store from "./store";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
+// import Userform from "./components/auth/Confirmation"
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+// import Assessment from "./components/assessment/Assessment";
+
 
 import "./App.css";
+// import MainForm from "./components/auth/MainForm";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -41,12 +45,14 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
+            {/* <Navbar /> */}
             <Route exact path="/" component={Landing} />
+            {/* <Route exact path="/register" component={MainForm} /> */}
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              {/* <PrivateRoute exact path="/dashboard/assessment" component={Assessment} /> */}
             </Switch>
           </div>
         </Router>

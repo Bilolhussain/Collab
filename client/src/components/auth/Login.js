@@ -4,6 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Navbar from "../layout/Navbar";
+import { Container, Row, Col } from 'reactstrap';
+
 
 class Login extends Component {
   constructor() {
@@ -53,56 +56,65 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
+      <div>
+        <Navbar />
+        
+        <div className="container" style={{"margin": "auto", postion: "center"}}>
         <div style={{ marginTop: "4rem" }} className="row">
           <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Login</b> below
+              <h4 style={{ fontFamily: "Monserrat Bold", "font-size": "40px"}}>
+                <b>Welcome to Healthynox</b>
               </h4>
-              <p className="grey-text text-darken-1">
-                Don't have an account? <Link to="/register">Register</Link>
+              <p style={{ fontFamily: "Monserrat Bold"}}>
+                Continue your mental health journey and sign in.
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email || errors.emailnotfound
-                  })}
-                />
-                <label htmlFor="email">Email</label>
-                <span className="red-text">
-                  {errors.email}
-                  {errors.emailnotfound}
-                </span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password || errors.passwordincorrect
-                  })}
-                />
-                <label htmlFor="password">Password</label>
-                <span className="red-text">
-                  {errors.password}
-                  {errors.passwordincorrect}
-                </span>
-              </div>
+              <Row>
+                <Col sm="12" md={{ size: 6, offset: 3 }}>
+                  <div className="input-field col s6" style={{"background-color": "white","border-radius": "25px", "border": "2rm", "border-style": "solid", "border-color": "black"}}>
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.email}
+                    error={errors.email}
+                    id="email"
+                    type="email"
+                    className={classnames("", {
+                      invalid: errors.email || errors.emailnotfound
+                    })}
+                  />
+                  <label htmlFor="email" style={{ fontFamily: "Monserrat Bold"}}>Email</label>
+                  <span className="red-text">
+                    {errors.email}
+                    {errors.emailnotfound}
+                  </span>
+                  </div>
+                </Col>
+              </Row>
+              
+              <Row>
+                <Col sm="12" md={{ size: 6, offset: 3 }}>
+                    <div className="input-field col s6" style={{"background-color": "white","border-radius": "25px", "border": "2rm", "border-style": "solid", "border-color": "black"}}>
+                      <input
+                        onChange={this.onChange}
+                        value={this.state.password}
+                        error={errors.password}
+                        id="password"
+                        type="password"
+                        className={classnames("", {
+                          invalid: errors.password || errors.passwordincorrect
+                        })}
+                      />
+                      <label htmlFor="password" style={{ fontFamily: "Monserrat Bold"}}>Password</label>
+                      <span className="red-text">
+                        {errors.password}
+                        {errors.passwordincorrect}
+                      </span>
+                    </div>
+                </Col>
+              </Row>
+             
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
@@ -114,13 +126,23 @@ class Login extends Component {
                   type="submit"
                   className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
-                  Login
+                  Sign in
                 </button>
+                <br/>
+                <br/>
+                <Link to="/" style={{ fontFamily: "Monserrat Bold"}}>
+                  Forgot password?
+                </Link>
+                <p className="grey-text text-darken-1" style={{ fontFamily: "Monserrat Bold"}}>
+                New to Healthynox? <Link to="/register">Register now</Link>
+                </p>
               </div>
             </form>
           </div>
         </div>
       </div>
+     </div>
+      
     );
   }
 }
