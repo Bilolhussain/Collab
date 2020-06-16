@@ -1,9 +1,14 @@
 const mongoose = require("mongoose");
+const assessments = require("./Assessment");
 const Schema = mongoose.Schema;
 
 // Create Schema
 const UserSchema = new Schema({
-  name: {
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
     type: String,
     required: true
   },
@@ -15,7 +20,18 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  date: {
+  fileimg: {
+    type: String,
+    required: true
+   },
+  firstLogin: { 
+    type: Boolean, default: false
+  },
+  // assessment:[{
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: "assessments"
+  // }],
+    date: {
     type: Date,
     default: Date.now
   }

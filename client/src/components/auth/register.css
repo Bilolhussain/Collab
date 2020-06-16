@@ -1,7 +1,38 @@
-body {
+/* body {
     background-color: #DCEDFF
+} */
+html{
+  height: 100%;
 }
-
+body{
+ background-image: linear-gradient( rgba(255, 255, 255, 1), rgba(220,237,255, 1));
+ background-size: 100%
+}
+input[type="file"] {
+  display: none;
+}
+.custom-file-upload {
+  border: 1px solid #125FFF;
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  border-radius: 30px;
+  background-color: #125FFF;
+  width: 500px;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+#inputstyle{
+  background-color: white;
+  border-radius: 30px;
+  border: 0.1rm;
+  border-style: solid;
+  border-color: black;
+  width: 500px;
+  display: inline-block;
+  padding: 6px 12px;
+}
 /* @font-face {
   font-family: myFirstFont;
   src: url(sansation_light.woff);

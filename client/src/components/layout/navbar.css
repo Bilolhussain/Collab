@@ -1,3 +1,5 @@
-#body {
-    background-color: #DCEDFF
+body {
+        /* background-color:  rgb(255, 255, 255), */
+        background-image: linear-gradient( rgba(255, 255, 255, 1), rgba(220,237,255, 1))
 }
+

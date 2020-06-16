@@ -1,0 +1,17 @@
+html{
+    height: 100%;
+  }
+  body{
+   background-image: linear-gradient( rgba(255, 255, 255, 1), rgba(220,237,255, 1));
+   background-size: 100%
+  }
+  #loginstyle{
+    background-color: white;
+    border-radius: 25px; 
+    width: 400px;
+    border: 2rm;
+    border-style: solid;
+    border-color: black;
+    display: inline-block;
+    padding: 6px 12px;
+}

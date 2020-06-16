@@ -1,33 +1,23 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import './navbar.css';
+import { Button } from '@material-ui/core';
+import logo from './logo.png';
 
 class Navbar extends Component {
   render() {
     return (
-      <div className="navbar-fixed">
+      <div className="navbar-fixed" style={{backgroundColor: "white"}}>
         <nav className="z-depth-0">
-          <div className="nav-wrapper " style = {{"background-color": "#DCEDFF"}}> 
-            <Link
-              to="/"
-              style={{
-                fontFamily: "Montserrat Bold",
-                "font-size": "20px",
-                "font-weight": "bold",
-                "position": "fixed",
-                "left": "100px",
-              }}
-              className="col s5 brand-logo black-text" 
-            >
-              HEALTHYNOX
-            </Link>
-            <div>
-              <button 
+          <div className="nav-wrapper " style={{backgroundColor: "white"}} >
+              <img src={logo} style={{"margin-top":"20px","margin-left":"10px","display": "inline-block"}}></img>
+              <Button color="primary"
               style={{
                    "background-color": "#125FFF",
                     margin: "auto",
-                    width: "110px",
-                    borderRadius: "10px",
+                    height: "40px",
+                    width: "115px",
+                    borderRadius: "40px",
                     letterSpacing: "0.5px",
                     marginTop: "1rem",
                     "position": "fixed",
@@ -36,23 +26,24 @@ class Navbar extends Component {
                 classname ="btn btn-large hoverable blue accent-3"
               >
                 <Link to ="/" style= {{fontFamily: "Montserrat",
-                    "font-size": "20px"
-                    // "font-weight": "bold"
+                    "font-size": "16px",
+                    "font-weight": "bold"
                   }}>
                   Home
                 </Link>
-            
-              </button>
-            </div>
+              </Button>
+              
+            {/* </div> */}
 
             {/* Add Sign in Button*/}
-            <div>
-              <button 
+            {/* <div> */}
+              <Button
               style={{
                    "background-color": "#125FFF",
                     margin: "auto",
-                    width: "110px",
-                    borderRadius: "10px",
+                    width: "115px",
+                    height: "40px",
+                    borderRadius: "40px",
                     letterSpacing: "0.5px",
                     marginTop: "1rem",
                     "position": "fixed",
@@ -61,22 +52,23 @@ class Navbar extends Component {
                 classname ="btn btn-large hoverable blue accent-3"
               >
                 <Link to ="/login" style= {{fontFamily: "Montserrat",
-                    "font-size": "20px",
-                    // "font-weight": "bold"
+                    "font-size": "16px",
+                    "font-weight": "bold"
                   }}>
                   Sign in
                 </Link>
             
-              </button>
-            </div>
+              </Button>
+            {/* </div> */}
 
-            <div>
-              <button 
+            {/* <div> */}
+              <Button 
               style={{
                    "background-color": "#125FFF",
                     margin: "auto",
-                    width: "110px",
-                    borderRadius: "10px",
+                    width: "115px",
+                    height: "40px",
+                    borderRadius: "40px",
                     letterSpacing: "1.5px",
                     marginTop: "1rem",
                     "position": "fixed",
@@ -85,23 +77,24 @@ class Navbar extends Component {
                 classname ="btn btn-large hoverable blue accent-3"
               >
                 <Link to ="/" style= {{fontFamily: "Montserrat",
-                    "font-size": "20px",
-                    // "font-weight": "bold"
+                    "font-size": "16px",
+                    "font-weight": "bold"
                   }}>
                   Science
                 </Link>
             
-              </button>
-            </div>
+              </Button>
+            {/* </div> */}
             
 
-            <div>
-              <button 
+            {/* <div> */}
+              <Button
               style={{
                    "background-color": "#125FFF",
                     margin: "auto",
-                    width: "110px",
-                    borderRadius: "10px",
+                    height: "40px",
+                    width: "115px",
+                    borderRadius: "40px",
                     letterSpacing: "1.5px",
                     marginTop: "1rem",
                     "position": "fixed",
@@ -110,17 +103,15 @@ class Navbar extends Component {
                 classname ="btn btn-large hoverable blue accent-3"
               >
                 <Link to ="/" style= {{fontFamily: "Montserrat",
-                    "font-size": "20px",
-                    // "font-weight": "bold"
+                    "font-size": "16px",
+                    "font-weight": "bold"
                   }}>
                   About Us
                 </Link>
             
-              </button>
+              </Button>
             </div>
 
-
-          </div>
         </nav>
       </div>
     );
