@@ -1,61 +1,54 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('./mongoose/mongoose');
 const bodyParser = require('body-parser');
-const passport = require('passport');
-const cors = require('cors');
-const users = require('./routes/api/users');
 const path = require('path');
-require('dotenv').config();
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
 
+const router = express.Router();
 
+// App instance : Set app equal to the object returned by express();
 const app = express();
 
-// Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+app.use(cookieParser());
+
+/**
+ * Configure the middleware.
+ * bodyParser.json() returns a function that is passed as a param to app.use() as middleware
+ * With the help of this method, we can now send JSON to our express application.
+ */
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// app.use(express.json());
-app.use(cors());
 
-// DB Config
-const db = require('./config/keys').mongoURI;
+const users = require('./routes/api/users');
 
-// Connect to MongoDB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log('MongoDB successfully connected'))
-  .catch(err => console.log(err));
+app.use('/api/users', users);
+app.use('/', router);
 
 // Passport middleware
 app.use(passport.initialize());
 
-// Passport config
+// Include Passport Config
 require('./config/passport')(passport);
 
-// Routes
-// app.get('/', function(req, res, next) {
-//     res.send('Hello world');
-// })
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/api/users', users);
-app.use((req, res, next) => {
-  // Error goes via `next()` method
-  setImmediate(() => {
-      next(new Error('Something went wrong'));
-  });
-});
+// We export the router so that the server.js file can pick it up
+module.exports = router;
 
-app.use(function (err, req, res, next) {
-  console.error(err.message);
-  if (!err.statusCode) err.statusCode = 5000;
-  res.status(err.statusCode).send(err.message);
-});
+// Combine react and node js servers while deploying( YOU MIGHT HAVE ALREADY DONE THIS BEFORE
+// What you need to do is make the build directory on the heroku, which will contain the index.html of your react app and then point the HTTP request to the client/build directory
+
+if (process.env.NODE_ENV === 'production') {
+  // Set a static folder
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  );
+}
+
+// app.get('/therapist',(req, res) =>{
+
+// })
+// Set up a port
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+app.listen(port, () => console.log(`Server running on port: ${port}`));

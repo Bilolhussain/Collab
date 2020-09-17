@@ -1,32 +1,23 @@
-const mongoose = require("mongoose");
-const {Schema} = mongoose;
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 // Create Schema
 const AssessmentSchema = new Schema({
-  uAge: {
-    type: String
+  uCountry: {
+    type: String,
     // required: true
   },
   uGender: {
-    type: String
+    type: String,
     // type: mongoose.Schema.Types.ObjectId, ref: 'User'
   },
-  // uGender: {
-  //   type: String,
-  //   required: false
-  // },
-  uCountry: {
-    type: String
-    // required: true
+  uId: {
+    type: String,
   },
-  // postedBy:{
-  //   type: mongoose.Schema.Types.ObjectId, ref: 'User',
-  //   required: true
-  // },
-    date: {
+  date: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = mongoose.model("assessments", AssessmentSchema);
+module.exports = mongoose.model('assessments', AssessmentSchema);

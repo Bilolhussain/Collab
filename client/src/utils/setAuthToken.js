@@ -1,12 +1,21 @@
-import axios from "axios";
+import axios from 'axios';
 
-const setAuthToken = token => {
+/**
+ * Applies the give token to every http request, routes that need authorization.
+ * This token goes in the Authorization Headers.
+ *
+ * @param token
+ */
+const setAuthToken = (token) => {
   if (token) {
-    // Apply authorization token to every request if logged in
-    axios.defaults.headers.common["Authorization"] = token;
+    /**
+     * If token is available, apply to every http request
+     * Header value is Authorization ( like you pass token in Authorization property in Postman )
+     */
+    axios.defaults.headers.common['Authorization'] = token;
   } else {
-    // Delete auth header
-    delete axios.defaults.headers.common["Authorization"];
+    // Delete the Auth Header
+    delete axios.defaults.headers.common['Authorization'];
   }
 };
 
