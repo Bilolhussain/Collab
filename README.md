@@ -1,7 +1,8 @@
 Web-app in development built using the MERN stack with the following features:
 - Email Verification and Authorization upon registration
-- Questionnaire with Radio-Buttons
-- Ability to set up appointments 
+- Multi-step questionnaire with Radio-Buttons
+- Ability to set up appointments
+- Integrated Calendar
 - Save events (in progress)
 - Counselor interface (in progress)
 - Payment API set-up (in progress)
