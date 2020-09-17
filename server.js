@@ -34,9 +34,6 @@ require('./config/passport')(passport);
 // We export the router so that the server.js file can pick it up
 module.exports = router;
 
-// Combine react and node js servers while deploying( YOU MIGHT HAVE ALREADY DONE THIS BEFORE
-// What you need to do is make the build directory on the heroku, which will contain the index.html of your react app and then point the HTTP request to the client/build directory
-
 if (process.env.NODE_ENV === 'production') {
   // Set a static folder
   app.use(express.static('client/build'));
@@ -45,10 +42,6 @@ if (process.env.NODE_ENV === 'production') {
   );
 }
 
-// app.get('/therapist',(req, res) =>{
-
-// })
-// Set up a port
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Server running on port: ${port}`));
