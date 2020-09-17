@@ -6,4 +6,4 @@ Web-app in development built using the MERN stack with the following features:
 - Save events (in progress)
 - Counselor interface (in progress)
 - Payment API set-up (in progress)
-https://www.loom.com/share/60ea1600081746e9b1fea304abf47084
+https://www.loom.com/share/d46bef975a2d41a8b3a40a6137171665
